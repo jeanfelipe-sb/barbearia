@@ -1,0 +1,6 @@
+.carousel-inner > .item > img,.carousel-inner > .item active> img {
+     max-width:700px;
+    max-height:250px;
+    width: auto;
+    height: auto;
+}
