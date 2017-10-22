@@ -5,16 +5,40 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <?php
+            $num = 0;
+            foreach ($banner as $teste):
+                ?>            
+                <li data-target="#myCarousel" data-slide-to="<?= $num; ?>" <?php
+                if ($num == 0) {
+                    echo"class='active'";
+                };
+                ?>></li>
+                    <?php
+                    $num++;
+                endforeach;
+                ?>
         </ol>
+
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img class="img-responsive" src="webroot/img/barbershop.jpg" alt=""/>           
+            <?php
+            $primeiroBan = 1;
+            foreach ($banner as $banner):
+                ?>
+                <?php if ($primeiroBan == 1) { ?>
+                    <div class="item active">
+                        <?php
+                        $primeiroBan = 0;
+                    } else {
+                        ?>
+                        <div class="item">
+                            <?php
+                        }
+                        echo $this->Html->image($banner->img, array('class' => 'imge'));
+                        ?>        
+                    </div>     
+                <?php endforeach; ?>
             </div>
-            <div class="item">
-                <img class="img-responsive" src="webroot/img/1979070.jpg" alt=""/>          
-            </div>        
         </div>
     </div><!-- /.carousel -->
 </section>
@@ -24,7 +48,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>A Barbearia</h1>
-                 <h3>Nosso espaço foi feito para você!</h3>
+                <h3>Nosso espaço foi feito para você!</h3>
             </div>
         </div>
     </div>
@@ -47,8 +71,8 @@
             </div>
 
             <div class="col-lg-4 col-sm-6">
-                <a href="webroot/img/teste.jpg" class="portfolio-box">
-                    <img src="webroot/img/teste.jpg" class="img-responsive"alt="">
+                <a href="webroot/img/38b3efa4-ec82-4be6-8071-c2a0d4b3264c.jpg" class="portfolio-box">
+                    <img src="webroot/img/38b3efa4-ec82-4be6-8071-c2a0d4b3264c.jpg" class="img-responsive"alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
@@ -130,6 +154,7 @@
         </div>
         <br/>
     </div>    
+    
 </section>
 
 
@@ -139,32 +164,67 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Serviços</h2>
-                <hr class="primary">
+                <!--<hr class="primary">-->
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">         
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-male"></i>
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-barber1"></i>
                     <h2>Barba</h2>
-                    <p class="text-muted">Corte de barba com hidratação com óleo</p>
-                    <h3>$ 15</h3>
+                    <p>Corte de barba</p>
+                    <h3>$ 15</h3>                    
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-cut"></i>
-                    <h2>Corte</h2>
-                    <p class="text-muted">Corte masculino</p>
-                    <h3>$ 15</h3>
+            </div>     
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-cabelo"></i>
+                    <h2>Cabelo Barba </h2>
+                    <p>Corte de cabelo  masculino masculino masculino masculino masculino masculino masculino masculino</p>
+                    <h3>$ 15</h3>                    
                 </div>
-            </div>      
+            </div> 
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-barber1"></i>
+                    <h2> Barba Barba </h2>
+                    <p>Corte de barba</p>
+                    <h3>$ 15</h3>                    
+                </div>
+            </div>     
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-cabelo"></i>
+                    <h2>Cabelo</h2>
+                    <p>Corte de cabelo masculino</p>
+                    <h3>$ 15</h3>                    
+                </div>
+            </div> 
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-barber1"></i>
+                    <h2>Barba</h2>
+                    <p>Corte de barba</p>
+                    <h3>$ 15</h3>                    
+                </div>
+            </div>     
+            <div class="col-lg-3 col-sm-6 text-center">
+                <div class="centered service-box">
+                    <i class="fb fb-6x fb-cabelo"></i>
+                    <h2>Cabelo</h2>
+                    <p>Corte de cabelo masculino</p>
+                    <h3>$ 15</h3>                    
+                </div>
+            </div> 
             
+
         </div>
-         <div class="row">    
-             <div class="col-lg-12 col-md-12 text-center">
+
+
+        <div class="row">    
+            <div class="col-lg-12 col-md-12 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-image "></i>
                     <h3>Trabalhos Realizados</h3>
@@ -173,8 +233,9 @@
 
                 </div>
             </div>
-         </div>
+        </div>
     </div>
+
 </section>
 
 
@@ -182,11 +243,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Endereço </h1>
+                <h1>Endereço </h1>                
                 <h4 style="padding: 20px;padding-top: 0px"><i class="fa fa-2x fa-map-marker" aria-hidden="true">
                     </i> Rua teste, número teste, Piraquara - PR
                 </h4>
                 <h4> De Segunda à Sábado das 14h às 21h</h4>
+                <br/>
             </div>
         </div>
     </div>
@@ -241,4 +303,5 @@
             </div>
         </div>
     </div>
+
 </section>

@@ -78,7 +78,7 @@ class BannerController extends AppController {
         $banner = $this->Banner->newEntity();
         if ($this->request->is('post')) {
             $banner = $this->Banner->patchEntity($banner, $this->request->getData());
-            $this->Upload->uploadBanner($this->request->data['img'], $banner);
+            $this->Upload->uploadImg($this->request->data['img'], $banner,'Banner');
         }
         $this->set(compact('banner'));
         $this->set('_serialize', ['banner']);

@@ -25,10 +25,12 @@ class HomeController extends AppController {
      * @return \Cake\Http\Response|null
      */
     public function index() {
-//        $home = $this->paginate($this->Home);
-//
-//        $this->set(compact('home'));
-//        $this->set('_serialize', ['home']);
+        $this->loadModel('Banner');
+        
+        $banner = $this->Banner->find('all');
+
+        $this->set(compact('banner'));
+        $this->set('_serialize', ['banner']);
     }
 
     /**

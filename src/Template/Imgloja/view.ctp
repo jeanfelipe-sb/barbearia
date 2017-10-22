@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Img') ?></th>
-            <td><?= h($imgloja->img) ?></td>
+            <td><?php echo $this->Html->image($imgloja->img, array('class'=>'img')); ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

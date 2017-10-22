@@ -26,7 +26,7 @@
             <tr>
                 <td><?= $this->Number->format($imgservico->id) ?></td>
                 <td><?= h($imgservico->nome) ?></td>
-                <td><?= h($imgservico->img) ?></td>
+                <td><?php echo $this->Html->image($imgservico->img, array('class' => 'img')); ?></td>
                 <td><?= h($imgservico->descricao) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $imgservico->id]) ?>

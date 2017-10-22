@@ -63,7 +63,7 @@ class ImgservicosController extends AppController {
         $imgservico = $this->Imgservicos->newEntity();
         if ($this->request->is('post')) {
             $imgservico = $this->Imgservicos->patchEntity($imgservico, $this->request->getData());
-            $this->Upload->uploadImgServico($this->request->data['img'], $imgservico);
+            $this->Upload->uploadImg($this->request->data['img'], $imgservico,'Imgservicos');
         }
         $this->set(compact('imgservico'));
         $this->set('_serialize', ['imgservico']);
@@ -103,7 +103,7 @@ class ImgservicosController extends AppController {
     public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $imgservico = $this->Imgservicos->get($id);
-        
+        $dirThumb = WWW_ROOT . 'img' . DS . 'thumb' . DS . $filename;
          //nome da imagem
         $filename = $imgservico->img;
         $dir = WWW_ROOT . 'img' . DS . $filename;
@@ -113,7 +113,10 @@ class ImgservicosController extends AppController {
             $file = new File($dir);
             $file->delete();
             $file->close();
-            
+            //deletando thumb
+            $file1 = new File($dirThumb);
+            $file1->delete();
+            $file1->close();
             $this->Flash->success(__('The imgservico has been deleted.'));
         } else {
             $this->Flash->error(__('The imgservico could not be deleted. Please, try again.'));

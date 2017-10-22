@@ -16,8 +16,8 @@
     <h3><?= h($imgservico->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Img') ?></th>
-            <td><?= h($imgservico->img) ?></td>
+            <th scope="row"><?= __('Img') ?></th>            
+            <td><?php echo $this->Html->image($imgservico->img, array('class'=>'img')); ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Descricao') ?></th>

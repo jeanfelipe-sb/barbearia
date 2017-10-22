@@ -30,6 +30,8 @@ $cakeDescription = 'Barber Blues: Cabelo, Barba e Bigode';
         <?= $this->Html->css('custom.css') ?>
         <?= $this->Html->css('magnific-popup.css') ?>
         <?= $this->Html->css('font-awesome.min.css') ?>
+        <?= $this->Html->css('FontBarber.css') ?>
+
 
         <?= $this->fetch('meta') ?>
         <?= $this->fetch('css') ?>
@@ -207,17 +209,17 @@ $cakeDescription = 'Barber Blues: Cabelo, Barba e Bigode';
         async defer></script>
         <footer class="bg-dark">
             <div class="col-sm-4">
-                
+
             </div>
             <div class="col-sm-4 text-center">
                 <img style="height: 70px;"src="webroot/img/Logo.png" alt=""/>
             </div>
             <div class="col-sm-4 text-center">
-                 <h5 class="text-center">Desenvolvido por: <img style="height: 70px;"src="webroot/img/jf.png" alt=""/> </h5>
-                
-               
+                <h5 class="text-center">Desenvolvido por: <img style="height: 70px;"src="webroot/img/jf.png" alt=""/> </h5>
+
+
             </div>
-            
+
         </footer>
 
         <?= $this->Html->script('jquery-3.2.1.min.js') ?>

@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Controller;
+
 use Cake\Event\Event;
 use Cake\Filesystem\File;
-
 use App\Controller\AppController;
 
 /**
@@ -12,8 +13,7 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\Imgloja[] paginate($object = null, array $settings = [])
  */
-class ImglojaController extends AppController
-{
+class ImglojaController extends AppController {
 
     /**
      * Index method
@@ -25,13 +25,13 @@ class ImglojaController extends AppController
 
         $this->loadComponent('Upload');
     }
+
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('admin');
     }
-    
-    public function index()
-    {
+
+    public function index() {
         $imgloja = $this->paginate($this->Imgloja);
 
         $this->set(compact('imgloja'));
@@ -45,8 +45,7 @@ class ImglojaController extends AppController
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $imgloja = $this->Imgloja->get($id, [
             'contain' => []
         ]);
@@ -60,13 +59,11 @@ class ImglojaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $imgloja = $this->Imgloja->newEntity();
         if ($this->request->is('post')) {
             $imgloja = $this->Imgloja->patchEntity($imgloja, $this->request->getData());
-            $this->Upload->uploadImgloja($this->request->data['img'], $imgloja);            
-           
+            $this->Upload->uploadImg($this->request->data['img'], $imgloja,'Imgloja');
         }
         $this->set(compact('imgloja'));
         $this->set('_serialize', ['imgloja']);
@@ -79,8 +76,7 @@ class ImglojaController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $imgloja = $this->Imgloja->get($id, [
             'contain' => []
         ]);
@@ -104,21 +100,23 @@ class ImglojaController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
-        $imgloja = $this->Imgloja->get($id); 
-        
-         //nome da imagem
+        $imgloja = $this->Imgloja->get($id);
+
+        //nome da imagem
         $filename = $imgloja->img;
         $dir = WWW_ROOT . 'img' . DS . $filename;
-        
+        $dirThumb = WWW_ROOT . 'img' . DS . 'thumb' . DS . $filename;
         if ($this->Imgloja->delete($imgloja)) {
-             //deletando o arquivo da pasta
+            //deletando o arquivo da pasta
             $file = new File($dir);
             $file->delete();
             $file->close();
-
+            //deletando thumb
+            $file1 = new File($dirThumb);
+            $file1->delete();
+            $file1->close();
             $this->Flash->success(__('The imgloja has been deleted.'));
         } else {
             $this->Flash->error(__('The imgloja could not be deleted. Please, try again.'));
@@ -126,4 +124,5 @@ class ImglojaController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
 }

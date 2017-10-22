@@ -1,7 +1,7 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  */
+ * @var \App\View\AppView $this
+ */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -23,17 +23,16 @@
         </thead>
         <tbody>
             <?php foreach ($imgloja as $imgloja): ?>
-            <tr>
-                <td><?= $this->Number->format($imgloja->id) ?></td>
-                <td><?= h($imgloja->nome) ?></td>
-                <td><?= h($imgloja->descricao) ?></td>
-                <td><?= h($imgloja->img) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $imgloja->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $imgloja->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $imgloja->id], ['confirm' => __('Are you sure you want to delete # {0}?', $imgloja->id)]) ?>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= $this->Number->format($imgloja->id) ?></td>
+                    <td><?= h($imgloja->nome) ?></td>
+                    <td><?= h($imgloja->descricao) ?></td>
+                    <td><?php echo $this->Html->image($imgloja->img, array('class' => 'img')); ?></td>                <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $imgloja->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $imgloja->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $imgloja->id], ['confirm' => __('Are you sure you want to delete # {0}?', $imgloja->id)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

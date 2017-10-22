@@ -1,0 +1,120 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/10/2017, 19:08:36
+    Author     : Jean
+*/
+
+@font-face {
+    font-family: 'webfontregular';
+    src: url('../fonts/barber_shop-webfont.woff2') format('woff2'),
+         url('../fonts/barber_shop-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.fb {
+  display: inline-block;
+  font: normal normal normal 14px/1 webfontregular;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* makes the font 33% larger relative to the icon container */
+.fb-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fb-2x {
+  font-size: 2em;
+}
+.fb-3x {
+  font-size: 3em;
+}
+.fb-4x {
+  font-size: 4em;
+}
+.fb-5x {
+  font-size: 5em;
+}
+.fb-6x {
+  font-size: 6em;
+}
+.fb-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+.fb-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.fb-ul > li {
+  position: relative;
+}
+.fb-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+
+/*ICONS*/
+
+.fb-barber-shop:before {
+  content: "a";
+}
+.fb-barber1:before {
+  content: ")";
+}
+.fb-barber2:before {
+  content: "e";
+}
+.fb-cabelo:before {
+  content: ",";
+}
+.fb-corte1:before {
+  content: "1";
+}
+.fb-corte2:before {
+  content: "3";
+}
+.fb-produtos:before {
+  content: "V";
+}
+.fb-espuma1:before {
+  content: "9";
+}
+.fb-espuma2:before {
+  content: "8";
+}
+.fb-splay:before {
+  content: "v";
+}
+.fb-combo1:before {
+  content: "P";
+}
+.fb-combo2:before {
+  content: "ì";
+}
+.fb-navalha1:before {
+  content: "@";
+}
+.fb-navalha2:before {
+  content: "0";
+}
+.fb-tesoura1:before {
+  content: "6";
+}
+.fb-tesoura2:before {
+  content: "$";
+}
+
